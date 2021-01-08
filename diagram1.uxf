@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>312</x>
+      <y>42</y>
+      <w>246</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>map::BackGround
+--
+-x: double
+-y: double
+-WIDTH: double
+-HEIGHT: double
+-moveScale: double
+-dx: double
+-dy: double
+-bg: BufferedImage
+--
++BackGround(BufferedImage image, double moveScale): ctor
++setLocation(double x, double y): void
++setVector(double dx, double dy): void
++tick(): void
++draw(Graphics2D g): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>84</x>
+      <y>96</y>
+      <w>204</w>
+      <h>258</h>
+    </coordinates>
+    <panel_attributes>Main::GamePanel
+--
+-serialVersionUID = -2135705685294452991L: long
++WIDTH = 1600: int
++HEIGHT = 900: int
++SCALE = 1: int
+-start: long
+-elapsed: long
+-wait: long
+-thread: Thread
+-running: boolean
+-FPS = 60: int
+-targetTime = 1000 / FPS: long
+-stateManager: StateManager
+-keyManager = new KeyManager(): KeyManager
+-image: BufferedImage
+-g: Graphics2D
+--
++GamePanel(): ctor
++addNotify(): void
+-init(): void
+-tick(): void
+-draw(): void
+-drawToScreen(): void
++run(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>78</x>
+      <y>384</y>
+      <w>126</w>
+      <h>156</h>
+    </coordinates>
+    <panel_attributes>Main::KeyManager
+--
+-keyStates: boolean[]
++up: boolean
++down: boolean
++left: boolean
++right: boolean
++esc: boolean
++space: boolean
+--
++KeyManager(): ctor
++tick(): void
++keyPressed(KeyEvent k): void
++keyReleased(KeyEvent k): void
++keyTyped(KeyEvent k): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>360</x>
+      <y>270</y>
+      <w>102</w>
+      <h>156</h>
+    </coordinates>
+    <panel_attributes>state::StateManager
+--
+-states: ArrayList&lt;State&gt;
+-currentState: int
+-menuState = 0: int
+-level1 = 1: int
+-level2 = 2: int
+-level3 = 3: int
+--
++StateManager(): ctor
++setState(int state): void
++tick(): void
++draw(Graphics2D g): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>696</x>
+      <y>276</y>
+      <w>174</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>state::Level1
+--
+-entityManager: EntityManager
+-ship: Ship
+-player: Tubby
+--
++Level1(StateManager stateManager): ctor
++init(): void
++tick(): void
++draw(Graphics2D g): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>498</x>
+      <y>276</y>
+      <w>186</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>state::MenuState
+--
+-color: Color
+-titleFont: Font
+-font: Font
+--
++MenuState(StateManager stateManager): ctor
++init(): void
++tick(): void
++draw(Graphics2D g): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>264</x>
+      <y>474</y>
+      <w>186</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>Main::Assets
+--
++menu, bg1: BufferedImage
++redTubbyR, redTubbyL: BufferedImage
++purpleTubbyR, purpleTubbyL: BufferedImage
++yellowTubbyR, yellowTubbyL: BufferedImage
++greenTubbyR, greenTubbyL: BufferedImage
+--
++init(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>624</x>
+      <y>126</y>
+      <w>126</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>/state::State/
+--
+#stateManager: StateManager
+#background: BackGround
+--
++init(): void
++tick(): void
++draw(Graphics2D g): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>132</x>
+      <y>30</y>
+      <w>108</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>Main::Game
+--
+--
++main(String[] args): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>528</x>
+      <y>510</y>
+      <w>162</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>Main::ImageLoader
+--
+--
++loadImage(String path): BufferedImage
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>774</x>
+      <y>240</y>
+      <w>18</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>582</x>
+      <y>240</y>
+      <w>18</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>582</x>
+      <y>234</y>
+      <w>210</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;20.0;330.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>678</x>
+      <y>204</y>
+      <w>18</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>780</x>
+      <y>378</y>
+      <w>18</w>
+      <h>114</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>756</x>
+      <y>480</y>
+      <w>60</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>Entities...</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>78</x>
+      <y>96</y>
+      <w>18</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>552</x>
+      <y>150</y>
+      <w>84</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>180</x>
+      <y>66</y>
+      <w>18</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>132</x>
+      <y>348</y>
+      <w>18</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>456</x>
+      <y>288</y>
+      <w>54</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>282</x>
+      <y>288</y>
+      <w>90</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>732</x>
+      <y>378</y>
+      <w>18</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>456</x>
+      <y>396</y>
+      <w>294</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;470.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>444</x>
+      <y>522</y>
+      <w>96</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>140.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>324</x>
+      <y>204</y>
+      <w>18</w>
+      <h>282</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;450.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>444</x>
+      <y>486</y>
+      <w>324</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;10.0;520.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLInterface</id>
+    <coordinates>
+      <x>90</x>
+      <y>546</y>
+      <w>96</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>KeyListener Interface
+--
+KeyPressed
+KeyReleased</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>132</x>
+      <y>534</y>
+      <w>18</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+</diagram>

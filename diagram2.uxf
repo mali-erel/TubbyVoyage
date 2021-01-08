@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>5</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>30</y>
+      <w>305</w>
+      <h>335</h>
+    </coordinates>
+    <panel_attributes>Entities::Tubby
+--
+-collectedCookies: int
+-readyToGo: boolean
+-acceleration: double
+-type: String
+-skipping: boolean
+-moving = false: boolean
+-atGround = true: boolean
+-entityManager: EntityManager
+-toright: boolean
+--
++Tubby(String type, double x, double y, int width, int height, EntityManager entityManager): ctor
++tick(): void
++init(): void
++jump(): void
++draw(Graphics2D g): void
++move(): void
++gravity(): void
++toLeft(): void
++toRight(): void
++skip(): void
++checkIfGround(): void
++checkCollision(): void
++accelerate(): void
++deAccelerate(): void
++setColor(String color): void
++getCollectedCookies(): int
++setCollectedCookies(int collectedCookies): void
++isReadyToGo(): boolean
++setReadyToGo(boolean readyToGo): void
++getAcceleration(): double
++setAcceleration(double acceleration): void
++getType(): String
++setType(String type): void
++isSkipping(): boolean
++setSkipping(boolean skipping): void
++isMoving(): boolean
++setMoving(boolean moving): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>370</x>
+      <y>30</y>
+      <w>170</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>/Entities::Entity/
+--
+#x: double
+#y: double
+#WIDTH: double
+#HEIGHT: double
+#activePortrait: BufferedImage
+~boundaries: Rectangle
+--
++Entity(double x, double y, int width, int height): ctor
++getX(): double
++setX(double x): void
++getY(): double
++setY(double y): void
++getWIDTH(): double
++setWIDTH(double wIDTH): void
++getHEIGHT(): double
++setHEIGHT(double hEIGHT): void
++getBoundaries(): Rectangle
++tick(): void
++init(): void
++draw(Graphics2D g): void
++isSolid(): boolean
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>580</x>
+      <y>185</y>
+      <w>145</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Entities::EntityManager
+--
+-entities: ArrayList&lt;Entity&gt;
+-player: Tubby
+--
++EntityManager(): ctor
++add(Entity e): void
++init(): void
++remove(Entity e): void
++getEntities(): ArrayList&lt;Entity&gt;
++draw(Graphics2D g): void
++tick(): void
++setPlayer(Tubby player): void
++getPlayer(): Tubby
++setEntities(ArrayList&lt;Entity&gt; entities): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>360</x>
+      <y>255</y>
+      <w>180</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>/Entities::Creature/
+--
+#dx: boolean
+#dy: boolean
+#portrait: BufferedImage[]
+#health: int
+#speed: double
+#jumpStrength: double
+#weight: double
+--
++Creature(double x, double y, int width, int height): ctor
++move(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>545</y>
+      <w>155</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Main::Assets
+--
++menu, bg1: BufferedImage
++redTubbyR, redTubbyL: BufferedImage
++purpleTubbyR, purpleTubbyL: BufferedImage
++yellowTubbyR, yellowTubbyL: BufferedImage
++greenTubbyR, greenTubbyL: BufferedImage
+--
++init(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>175</x>
+      <y>555</y>
+      <w>175</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Entities::Enemy
+--
+--
++Enemy(double x, double y, int width, int height): ctor
++tick(): void
++init(): void
++draw(Graphics2D g): void
++move(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>580</x>
+      <y>105</y>
+      <w>250</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Entities::Platform
+--
+--
++Platform(double x, double y, int width, int height, BufferedImage portrait): ctor
++tick(): void
++init(): void
++draw(Graphics2D g): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>580</x>
+      <y>30</y>
+      <w>165</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Entities::Ship
+--
+--
++Ship(double x, double y, int width, int height): ctor
++tick(): void
++init(): void
++draw(Graphics2D g): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>15</x>
+      <y>635</y>
+      <w>240</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>Entities::Trap
+--
+--
++Trap(double x, double y, int width, int height, BufferedImage portrait): ctor
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>260</x>
+      <y>635</y>
+      <w>135</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>Main::ImageLoader
+--
+--
++loadImage(String path): BufferedImage
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>445</x>
+      <y>225</y>
+      <w>15</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>330</x>
+      <y>290</y>
+      <w>40</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>535</x>
+      <y>45</y>
+      <w>55</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>535</x>
+      <y>125</y>
+      <w>55</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
+  </element>
+</diagram>
